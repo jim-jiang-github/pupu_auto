@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Appium.WebDriver" Version="4.4.5" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>8.*-*</Version>
     </PackageReference>
@@ -23,6 +24,7 @@
     <ProjectReference Include="..\pupuauto.client\pupuauto.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\PuPuAuto.Services\PuPuAuto.Services.csproj" />
   </ItemGroup>
 
 </Project>

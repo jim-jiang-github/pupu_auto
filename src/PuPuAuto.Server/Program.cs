@@ -1,4 +1,7 @@
 
+using PuPuAuto.Contracts;
+using PuPuAuto.Services;
+
 namespace PuPuAuto.Server
 {
     public class Program
@@ -13,6 +16,7 @@ namespace PuPuAuto.Server
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSingleton<IWeChatService, WeChatService>();
 
             var app = builder.Build();
 

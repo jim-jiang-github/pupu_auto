@@ -8,7 +8,7 @@ namespace PuPuAuto.Contracts
 {
     public interface IWeChatService
     {
-        Task<bool> SayHi(string user);
+        Task<bool> SendMessage(string user, string message);
         Task<bool> OpenWeChat();
     }
 }

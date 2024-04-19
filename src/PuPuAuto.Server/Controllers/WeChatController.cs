@@ -7,11 +7,6 @@ namespace PuPuAuto.Server.Controllers
     [Route("[controller]")]
     public class WeChatController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeChatController> _logger;
         private readonly IWeChatService _weChatService;
 
@@ -21,16 +16,10 @@ namespace PuPuAuto.Server.Controllers
             _weChatService = weChatService;
         }
 
-        [HttpGet(Name = "GetWeChat")]
-        public IEnumerable<WeatherForecast> GetWeChat()
+        [HttpGet(Name = "SendMessage")]
+        public async Task<bool> SendMessage(string user, string message)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return await _weChatService.SendMessage(user, message);
         }
     }
 }
